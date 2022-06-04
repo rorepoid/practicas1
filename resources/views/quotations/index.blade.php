@@ -43,7 +43,7 @@
                     </td>
                     <td class="py-4 h-full border border-black">
                         <div class="form-check grid align-center justify-center content-center">
-                            <input type="checkbox" class="form-checkbox bg-red-600 checked:text-green-600 checked:bg-green-600">
+                            <input type="checkbox" class="form-checkbox bg-red-600 checked:text-green-600 checked:bg-green-600" {{ $quotation->status ? 'checked' : '' }}>
                         </div>
                     </td>
                     <td class="px-6 py-4 border border-black">
