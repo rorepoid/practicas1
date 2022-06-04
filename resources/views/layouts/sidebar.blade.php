@@ -8,7 +8,7 @@
 
         <ul class="space-y-2">
             <li>
-                <a href="#"
+                <a href="{{ route('home') }}"
                     class="flex items-center p-2 text-base font-normal text-gray-100 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-blue-700 hover:text-black">
                     <img src="{{ asset('svg/cotizacion.svg') }}" width="70px" height="70px" />
 

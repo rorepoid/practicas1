@@ -29,52 +29,25 @@
                 </tr>
             </thead>
             <tbody>
+                @forelse ($quotations as $quotation)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <td scope="row"
                         class="px-6 py-4 text-gray-900 dark:text-white whitespace-nowrap border border-black">
-                        02
+                        {{ $quotation->id }}
                     </td>
                     <td class="px-6 py-4 border border-black">
-                        GALVEC PERU SAC
+                        {{ $quotation->company->name }}
                     </td>
                     <td class="px-6 py-4 border border-black">
-                        201214
-                    </td>
-                    <td class="py-4 h-full grid align-center justify-center content-center">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-checkbox bg-red-600 checked:text-green-600 checked:bg-green-600">
-                        </div>
-                    </td>
-                    <td class="px-6 py-4 border border-black">
-                        S/2000
-                    </td>
-                    <td class="px-6 py-4 border border-black">
-                        <div class=" grid grid-cols-2 gap-4 align-center justify-center text-center">
-                            <a href="#"
-                                class="text-white dark:text-blue-500 bg-blue-700 px-2 py-1 border border border-blue-900">Editar</a>
-                            <a href="#"
-                                class="text-white dark:text-blue-500 bg-red-700 px-2 py-1 border border border-red-900">Eliminar</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <td scope="row"
-                        class="px-6 py-4 text-gray-900 dark:text-white whitespace-nowrap border border-black">
-                        01
-                    </td>
-                    <td class="px-6 py-4 border border-black">
-                        GALVEC PERU SAC
-                    </td>
-                    <td class="px-6 py-4 border border-black">
-                        201214
+                        {{ $quotation->company->ruc }}
                     </td>
                     <td class="py-4 h-full border border-black">
-                        <div class="form-check grid align-center justify-center">
+                        <div class="form-check grid align-center justify-center content-center">
                             <input type="checkbox" class="form-checkbox bg-red-600 checked:text-green-600 checked:bg-green-600">
                         </div>
                     </td>
                     <td class="px-6 py-4 border border-black">
-                        S/2000
+                        {{ $quotation->total }}
                     </td>
                     <td class="px-6 py-4 border border-black">
                         <div class=" grid grid-cols-2 gap-4 align-center justify-center text-center">
@@ -85,6 +58,7 @@
                         </div>
                     </td>
                 </tr>
+                @empty
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <td scope="row"
                         class="px-6 py-4 text-gray-900 dark:text-white whitespace-nowrap border border-black">
@@ -104,6 +78,8 @@
                     <td class="px-6 py-4 text-right border border-black">
                     </td>
                 </tr>
+
+                @endforelse
             </tbody>
         </table>
     </div>
