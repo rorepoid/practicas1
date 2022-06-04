@@ -4,11 +4,7 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-10 w-400 fill-current text-gray-600" />
-                    </a>
-                </div>
+
             </div>
 
             <!-- Settings Dropdown -->

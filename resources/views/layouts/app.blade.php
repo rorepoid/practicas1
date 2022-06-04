@@ -28,6 +28,7 @@
             </header>
 
             <!-- Page Content -->
+            @include('layouts.sidebar')
             <main>
                 {{ $slot }}
             </main>
