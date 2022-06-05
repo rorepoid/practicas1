@@ -54,7 +54,7 @@
                             <a href="#"
                                 class="text-white dark:text-blue-500 bg-blue-700 px-2 py-1 border border border-blue-900">Editar</a>
                             <a href="#"
-                                class="text-white dark:text-blue-500 bg-red-700 px-2 py-1 border border border-red-900">Eliminar</a>
+                                class="text-white dark:text-blue-500 bg-red-700 px-2 py-1 border border border-red-900">Ver</a>
                         </div>
                     </td>
                 </tr>
