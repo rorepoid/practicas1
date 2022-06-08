@@ -17,6 +17,8 @@ class CreateCompaniesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('ruc');
+            $table->string('address');
+            $table->string('attention');
             $table->boolean('status');
             $table->timestamps();
         });

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\QuotationController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [QuotationController::class, 'index'])->middleware(['auth'])->name('home');
+Route::resource('/companies', CompanyController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

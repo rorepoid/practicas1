@@ -15,7 +15,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::all();
+
+        return view('companies.index', compact('companies'));
     }
 
     /**
@@ -47,7 +49,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        //
+        return Company::findOrFail($company->id);
     }
 
     /**
