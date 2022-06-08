@@ -15,7 +15,7 @@ class CompanyFactory extends Factory
     {
         return [
             'name' => $this->faker->company(),
-            'ruc' => $this->faker->unique()->numberBetween(10000000, 99999999),
+            'ruc' => $this->faker->unique()->numberBetween(10000000000, 99999999999),
             'address' => $this->faker->address(),
             'attention' => $this->faker->name(),
             'status' => $this->faker->boolean(),

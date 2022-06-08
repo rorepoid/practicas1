@@ -9,11 +9,11 @@ class ListCompanies extends Component
 {
     public $companies;
 
-    protected $listeners = ['companyAdded'];
+    protected $listeners = ['companyAdded', 'companyUpdated', 'companyDeleted'];
 
     public function mount()
     {
-        $this->companies = Company::all();
+        $this->companies = $this->getCompanies();
     }
 
     public function render()
@@ -21,8 +21,23 @@ class ListCompanies extends Component
         return view('livewire.company.list-companies');
     }
 
-    public function companyAdded(Company $company)
+    public function getCompanies()
     {
-        $this->companies = Company::all();
+        return Company::all();
+    }
+
+    public function companyAdded()
+    {
+        $this->companies = $this->getCompanies();
+    }
+
+    public function companyUpdated()
+    {
+        $this->companies = $this->getCompanies();
+    }
+
+    public function companyDeleted()
+    {
+        $this->companies = $this->getCompanies();
     }
 }

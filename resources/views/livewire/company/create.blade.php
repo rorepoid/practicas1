@@ -16,7 +16,7 @@
                     name="name"
                     id="name"
                     wire:model="name">
-                    @error('name') <span class="text-red-700">{{ $message }}</span> @enderror
+                @error('name') <span class="text-red-700">{{ $message }}</span> @enderror
             </div>
             <div class="form-group mb-6">
                 <label for="ruc" class="form-label inline-block mb-2 text-gray-700">RUC <span class="text-red-700">*</span></label>
@@ -25,7 +25,7 @@
                     name="ruc"
                     id="ruc"
                     wire:model="ruc">
-                    @error('ruc') <span class="text-red-700">{{ $message }}</span> @enderror
+                @error('ruc') <span class="text-red-700">{{ $message }}</span> @enderror
             </div>
             <div class="form-group mb-6">
                 <label for="address" class="form-label inline-block mb-2 text-gray-700">Domicilio

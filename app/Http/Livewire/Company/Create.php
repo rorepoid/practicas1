@@ -29,6 +29,7 @@ class Create extends ModalComponent
     public function save()
     {
         $this->validate();
+
         Company::create([
             'name' => $this->name,
             'ruc' => $this->ruc,
