@@ -13,9 +13,8 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         {{ $styles }}
+        @livewireStyles
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -37,5 +36,8 @@
                 {{ $slot }}
             </main>
         </div>
+        @livewireScripts
+        @livewire('livewire-ui-modal')
+        <script src="{{ asset('js/app.js') }}" defer></script>
     </body>
 </html>
