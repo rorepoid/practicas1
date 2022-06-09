@@ -21,8 +21,12 @@ class Delete extends ModalComponent
 
     public function delete()
     {
-        $this->company->delete();
-        $this->closeModal();
-        $this->emit('companyDeleted');
+        if ($this->company->quotations->count() > 0) {
+            $this->addError('delete', 'No se puede borrar, tiene cotizaciones asociadas.');
+        } else {
+            $this->company->delete();
+            $this->emit('companyDeleted');
+            $this->closeModal();
+        }
     }
 }

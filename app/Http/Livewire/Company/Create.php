@@ -17,7 +17,7 @@ class Create extends ModalComponent
         'name' => ['required', 'string'],
         'ruc' => ['required', 'digits:11'],
         'address' => ['required', 'string'],
-        'attention' => ['required', 'string'],
+        'attention' => ['nullable', 'string'],
         'status' => ['nullable', 'boolean'],
     ];
 

@@ -10,14 +10,14 @@
     <div class="modal-body relative p-4">
         <form wire:submit.prevent="save">
             <div class="form-group mb-6">
-                <label for="name" class="form-label inline-block mb-2 text-gray-700">Empresa</label>
+                <label for="name" class="form-label inline-block mb-2 text-gray-700">Empresa <span class="text-red-700">*</span></label>
                 <input type="text"
                     class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     name="name" id="name" wire:model="name">
                 @error('name') <span class="text-red-700">{{ $message }}</span> @enderror
             </div>
             <div class="form-group mb-6">
-                <label for="ruc" class="form-label inline-block mb-2 text-gray-700">RUC</label>
+                <label for="ruc" class="form-label inline-block mb-2 text-gray-700">RUC <span class="text-red-700">*</span></label>
                 <input type="text"
                     class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     name="ruc" id="ruc" wire:model="ruc">
@@ -25,10 +25,10 @@
             </div>
             <div class="form-group mb-6">
                 <label for="address" class="form-label inline-block mb-2 text-gray-700">Domicilio
-                    Fiscal</label>
+                    Fiscal <span class="text-red-700">*</span></label>
                 <textarea
                     class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    id="address" name="address" rows="3">{{ $company->address }}</textarea>
+                    id="address" name="address" rows="3" wire:model="address">{{ $company->address }}</textarea>
                 @error('address') <span class="text-red-700">{{ $message }}</span> @enderror
             </div>
             <div class="form-group mb-6">

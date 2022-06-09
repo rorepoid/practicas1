@@ -14,6 +14,9 @@
                 <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">¿Eliminar registo?</h3>
             </div>
         </div>
+        <div class="mt-3 text-center sm:mt-0 sm:ml-4">
+            @error('delete') <span class="text-red-700">{{ $message }}</span> @enderror
+        </div>
     </div>
     <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
         <button type="button"
