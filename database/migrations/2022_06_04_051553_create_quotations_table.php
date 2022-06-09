@@ -15,7 +15,7 @@ class CreateQuotationsTable extends Migration
     {
         Schema::create('quotations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('company_id');
+            $table->foreignId('company_id')->constrained();
             $table->boolean('status');
             $table->decimal('total', 8, 2);
             $table->timestamps();
