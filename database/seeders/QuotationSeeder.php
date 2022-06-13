@@ -13,8 +13,8 @@ class QuotationSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Quotation::factory(20)->has(
-            \App\Models\Company::factory()
-        )->create();
+        // \App\Models\Quotation::factory(20)->has(
+        //     \App\Models\Company::factory()
+        // )->create();
     }
 }

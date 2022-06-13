@@ -19,6 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('ruc');
             $table->string('address')->nullable();
             $table->string('attention')->nullable();
+            $table->string('preferred_payment_method');
             $table->boolean('status');
             $table->timestamps();
         });
