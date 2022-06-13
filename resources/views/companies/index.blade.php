@@ -12,25 +12,4 @@
     <div class="mx-10 bg-white">
         <livewire:company.list-companies />
     </div>
-
-    <script>
-        // const companyTable = document.querySelector('#companiesTable');
-        // const companyEditButtons = companyTable.querySelectorAll('[data-bs-toggle="modal"]');
-        // const editModal = document.getElementById('companyEditModal');
-        // const form = document.getElementById('companyForm');
-
-        // companyEditButtons.forEach(button => {
-        //     button.addEventListener('click', async () => {
-        //         let response = await fetch('/companies/' + button.dataset.id);
-        //         let data = await response.json();
-        //         editModal.querySelector('[name="name"]').value = data.name || '';
-        //         editModal.querySelector('[name="ruc"]').value = data.ruc || '';
-        //         editModal.querySelector('[name="address"]').value = data.address || '';
-        //         editModal.querySelector('[name="attention"]').value = data.attention || '';
-        //         editModal.querySelector('[name="status"]').checked = data.status || false;
-
-        //         console.log(data);
-        //     });
-        // });
-    </script>
 </x-app-layout>
