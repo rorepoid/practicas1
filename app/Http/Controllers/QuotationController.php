@@ -27,7 +27,7 @@ class QuotationController extends Controller
      */
     public function create()
     {
-        //
+        return view('quotations.create');
     }
 
     /**

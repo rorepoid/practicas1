@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [QuotationController::class, 'index'])->middleware(['auth'])->name('home');
 Route::resource('/companies', CompanyController::class);
+Route::resource('/quotations', QuotationController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
