@@ -21,7 +21,7 @@
     <div class="p-3">
         <div class="bg-white p-3 row align-items-center">
             <div class="col" style="align:center;">
-                <img class="logo" src="../../resources/IMG/logo.png" alt="">
+                <x-application-logo class="block fill-current text-gray-600" />
             </div>
             <div class="col">
                 <br>

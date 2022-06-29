@@ -2,50 +2,48 @@
     <div class="grid grid-cols-2 gap-4 p-3">
         <div class="col">
             <div class="border border-dark p-3">
-                <div class="grid grid-cols-1 md:grid-cols-6">
-                    <p class="input-group mb-3">
-                        <label>SEÑORES: </label>
-                        <select name="companies" wire:model.defer="company_id">
-                            <option value="">SELECCIONAR</option>
-                        </select>
-                    </p>
-                    <p class="input-group mb-3">
-                        <label>RUC: </label>
-                        <input name="ruc" type="text" class="form-control" formControlName="ruc">
+                <p class="grid grid-cols-5 gap-4 mb-3">
+                    <label>SEÑORES: </label>
+                    <select name="companies" class="col-span-4" wire:model.defer="company_id">
+                        <option value="">SELECCIONAR</option>
+                    </select>
+                </p>
+                <p class="grid grid-cols-5 gap-4 mb-3 mb-3">
+                    <label>RUC: </label>
+                    <input name="ruc" type="text" class="form-control col-span-4" formControlName="ruc">
 
-                    </p>
-                    <p class="input-group mb-3">
-                        <label>FORMA DE PAGO:</label>
-                        <input name="payment_method" type="text" class="form-control"
-                            formControlName="payment_method">
-                    </p>
+                </p>
+                <p class="grid grid-cols-5 gap-4 mb-3 mb-3">
+                    <label>FORMA DE PAGO:</label>
+                    <input name="payment_method" type="text" class="form-control col-span-4"
+                        formControlName="payment_method">
+                </p>
 
-                    <p class="input-group mb-3">
-                        <label>DISPONIBILIDAD:</label>
-                        <input type="text" class="form-control" value="DE ACUERDO A LA CONFIRMACIÓN DEL SERVICIO"
-                            disabled>
-                    </p>
-                </div>
+                <p class="grid grid-cols-5 gap-4 mb-3 mb-3">
+                    <label>DISPONIBILIDAD:</label>
+                    <input type="text" class="form-control col-span-4" value="DE ACUERDO A LA CONFIRMACIÓN DEL SERVICIO"
+                        disabled>
+                </p>
             </div>
         </div>
         <div class="col">
             <div class="border border-dark p-3">
-                <p class="input-group mb-3">
+                <p class="grid grid-cols-5 gap-4 mb-3">
                     <label>ATENCION: </label>
-                    <input name="attention" type="text" class="form-control" formControlName="attention">
+                    <input name="attention" type="text" class="form-control col-span-4" formControlName="attention">
                 </p>
-                <p class="input-group mb-3">
+                <p class="grid grid-cols-5 gap-4 mb-3">
                     <label>FECHA :</label>
-                    <input name="fecha" type="date" class="form-control" formControlName="distrito"
+                    <input name="fecha" type="date" class="form-control col-span-4" formControlName="distrito"
                         value="{{ now()->format('Y-m-d') }}">
                 </p>
-                <p class="input-group mb-3">
+                <p class="grid grid-cols-5 gap-4 mb-3">
                     <label>VALIDEZ DE COTIZACION :</label>
-                    <input type="text" class="form-control" value="15 DÍAS" disabled>
+                    <input type="text" class="form-control col-span-4" value="15 DÍAS" disabled>
                 </p>
-                <p class="input-group mb-3">
+                <p class="grid grid-cols-5 gap-4 mb-3">
                     <label>MONEDA:</label>
-                    <input type="text" class="form-control" value="SOLES" disabled>
+                    <input type="text" class="form-control col-span-4" value="SOLES" disabled>
                 </p>
             </div>
         </div>
@@ -268,9 +266,9 @@
                 let total = quantity * unitPrice;
                 document.querySelector('[name="subtotal"]').value = `S/ ${total}`;
                 document.querySelector('[name="total"]').value = `S/ ${total}`;
-                document.querySelector('[name="resume_subtotal"]').innerHTML = `S/ ${total}`;
-                document.querySelector('[name="resume_igv"]').innerHTML = `S/ ${(total * 0.18).toFixed(2)}`;
-                document.querySelector('[name="resume_total"]').innerHTML = `S/ ${(total * 1.18).toFixed(2)}`;
+                document.querySelector('[name="resume_subtotal"]').value = `S/ ${total}`;
+                document.querySelector('[name="resume_igv"]').value = `S/ ${(total * 0.18).toFixed(2)}`;
+                document.querySelector('[name="resume_total"]').value = `S/ ${(total * 1.18).toFixed(2)}`;
             });
         });
 
