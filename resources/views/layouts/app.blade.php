@@ -12,7 +12,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        {{ $styles }}
+        @stack('styles')
         @livewireStyles
 
     </head>
@@ -39,5 +39,6 @@
         @livewireScripts
         @livewire('livewire-ui-modal')
         <script src="{{ asset('js/app.js') }}" defer></script>
+        @stack('scripts')
     </body>
 </html>

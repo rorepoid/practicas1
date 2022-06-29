@@ -15,12 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [QuotationController::class, 'index'])->middleware(['auth'])->name('home');
-Route::resource('/companies', CompanyController::class);
-Route::resource('/quotations', QuotationController::class);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', [QuotationController::class, 'index'])->middleware(['auth'])->name('home');
+    Route::get('/dashboard', fn () => view('dashboard'))->name('dashboard');
+    Route::resource('/companies', CompanyController::class);
+    Route::resource('/quotations', QuotationController::class);
+});
 
 require __DIR__.'/auth.php';

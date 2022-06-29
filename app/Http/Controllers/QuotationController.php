@@ -8,11 +8,6 @@ use App\Models\Quotation;
 
 class QuotationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $quotations = Quotation::with('company')->get();
@@ -20,14 +15,10 @@ class QuotationController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('quotations.create');
+        $quotationsCount = Quotation::count();
+        return view('quotations.create', compact('quotationsCount'));
     }
 
     /**
