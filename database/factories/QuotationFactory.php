@@ -14,6 +14,8 @@ class QuotationFactory extends Factory
      */
     public function definition()
     {
+        $quantity = $this->faker->numberBetween(1, 25);
+        $unitPrice = (float) $this->faker->randomFloat(2, 1, 250);
         return [
             'company_id' => $this->faker->numberBetween(1, 2),
             'date' => $this->faker->dateTimeBetween('-1 years', 'now'),
@@ -22,6 +24,7 @@ class QuotationFactory extends Factory
             'materials' => 'Materiales varios',
             'weight' => $this->faker->numberBetween(1, 25),
             'pickup_address' => $this->faker->address(),
+            'delivery_address' => $this->faker->address(),
             'description' => collect([
                 'RECOGO DE MATERIALES EN TODO LIMA Y CALLAO.',
                 'INCLUYE EL ACOMODAMIENTO DE LA CARGA.',
@@ -30,8 +33,10 @@ class QuotationFactory extends Factory
                 'NO INCLUYE CARGA NI DESCARGA',
                 'SISTEMA DE GESTION GPS, PARA TODOS NUESTROS SERVICIOS DE CARGA PESADA Y SOBREDIMENSIONADA.',
             ])->join('\n'),
+            'quantity' => $quantity,
+            'unit_price' => $unitPrice,
+            'total' => $quantity * ($unitPrice + 1.18),
             'status' => $this->faker->boolean(),
-            'total' => $this->faker->randomFloat(2, 0, 100),
         ];
     }
 }

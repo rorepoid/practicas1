@@ -18,8 +18,11 @@ class Quotation extends Model
         'materials',
         'weight',
         'pickup_address',
+        'delivery_address',
         'description',
         'status',
+        'quantity',
+        'unit_price',
         'total',
     ];
 

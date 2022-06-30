@@ -65,9 +65,12 @@ class CreateQuotation extends Component
             'materials' => $this->materials,
             'weight' => $this->weight,
             'pickup_address' => $this->pickupAddress,
+            'delivery_address' => $this->deliveryAddress,
             'description' => implode("\n", $this->commercialData),
-            'status' => 0,
+            'quantity' => $this->quantity,
+            'unit_price' => $this->unitPrice,
             'total' => $this->total,
+            'status' => 0,
         ]);
 
         $this->emit('quotationStored', $quotation);

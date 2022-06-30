@@ -20,10 +20,13 @@ class CreateQuotationsTable extends Migration
             $table->string('transport_unit');
             $table->text('materials');
             $table->text('pickup_address');
+            $table->text('delivery_address');
             $table->text('description');
             $table->date('date');
-            $table->integer('weight');
             $table->boolean('status');
+            $table->integer('weight');
+            $table->integer('quantity');
+            $table->decimal('unit_price', 8, 2);
             $table->decimal('total', 8, 2);
             $table->timestamps();
         });
