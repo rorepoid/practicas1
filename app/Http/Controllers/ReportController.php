@@ -10,7 +10,7 @@ class ReportController extends Controller
 {
     public function index()
     {
-        $quotations = Quotation::all();
+        $quotations = Quotation::where('status', '=', 1)->get();
         $quotationsTotalSum = $quotations->sum('total');
         return view('reports.index', compact('quotationsTotalSum'));
 
