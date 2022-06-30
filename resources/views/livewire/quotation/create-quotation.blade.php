@@ -4,25 +4,28 @@
             <div class="border border-dark p-3">
                 <p class="grid grid-cols-5 gap-4 mb-3">
                     <label>SEÑORES: </label>
-                    <select name="companies" class="col-span-4" wire:model.defer="company_id">
+                    <select name="companies" class="col-span-4" wire:change="fillCompanyData" wire:model="companyId">
                         <option value="">SELECCIONAR</option>
+                        @foreach ($companies as $company)
+                            <option value="{{ $company->id }}">{{ $company->name }}</option>
+                        @endforeach
                     </select>
                 </p>
                 <p class="grid grid-cols-5 gap-4 mb-3 mb-3">
                     <label>RUC: </label>
-                    <input name="ruc" type="text" class="form-control col-span-4" formControlName="ruc">
-
+                    <input name="ruc" type="text" class="form-control col-span-4" formControlName="ruc" required
+                        wire:model="ruc">
                 </p>
                 <p class="grid grid-cols-5 gap-4 mb-3 mb-3">
                     <label>FORMA DE PAGO:</label>
                     <input name="payment_method" type="text" class="form-control col-span-4"
-                        formControlName="payment_method">
+                        formControlName="payment_method" required wire:model="paymentMethod">
                 </p>
 
                 <p class="grid grid-cols-5 gap-4 mb-3 mb-3">
                     <label>DISPONIBILIDAD:</label>
-                    <input type="text" class="form-control col-span-4" value="DE ACUERDO A LA CONFIRMACIÓN DEL SERVICIO"
-                        disabled>
+                    <input type="text" class="form-control col-span-4"
+                        value="DE ACUERDO A LA CONFIRMACIÓN DEL SERVICIO" disabled>
                 </p>
             </div>
         </div>
@@ -30,12 +33,13 @@
             <div class="border border-dark p-3">
                 <p class="grid grid-cols-5 gap-4 mb-3">
                     <label>ATENCION: </label>
-                    <input name="attention" type="text" class="form-control col-span-4" formControlName="attention">
+                    <input name="attention" type="text" class="form-control col-span-4" formControlName="attention"
+                        required wire:model="attention">
                 </p>
                 <p class="grid grid-cols-5 gap-4 mb-3">
                     <label>FECHA :</label>
-                    <input name="fecha" type="date" class="form-control col-span-4" formControlName="distrito"
-                        value="{{ now()->format('Y-m-d') }}">
+                    <input name="fecha" type="date" class="form-control col-span-4" formControlName="date"
+                        value="{{ now()->format('Y-m-d') }}" required wire:model="date">
                 </p>
                 <p class="grid grid-cols-5 gap-4 mb-3">
                     <label>VALIDEZ DE COTIZACION :</label>
@@ -64,33 +68,39 @@
             <tr id="itemRow">
                 <th scope="row">1</th>
                 <td class="p-0 text-center" style="width: 8%">
-                    <input class="w-full m-0 p-2 border-none text-center bg-gray-100" type="number" name="quantity"
-                        id="quantity">
+                    <input
+                        class="w-full m-0 p-2 border-none text-center bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        type="number" name="quantity" id="quantity" min="1" onClick="this.select();" wire:model="quantity">
                 </td>
                 <td>UNID.</td>
                 <td class="p-0 border-0 text-left flex">
                     <span class="p-2">SERVICIO DE TRANSPORTE EN </span>
-                    <select class="bg-gray-100 py-0" name="transportUnit" id="transportUnit">
-                        <option value="">PLATAFORMA</option>
-                        <option value="1">CAMIÓN REBATIBLE</option>
-                        <option value="2">CAMIÓN DOBLE EJE</option>
-                        <option value="3">PORTER</option>
-                        <option value="4">CAMABAJA</option>
+                    <select class="bg-gray-100 py-0" name="transportUnit" id="transportUnit"
+                        wire:model="transportUnit" required>
+                        <option value="">SELECCIONAR</option>
+                        <option value="PLATAFORMA">PLATAFORMA</option>
+                        <option value="CAMIÓN REBATIBLE">CAMIÓN REBATIBLE</option>
+                        <option value="CAMIÓN DOBLE EJE">CAMIÓN DOBLE EJE</option>
+                        <option value="PORTER">PORTER</option>
+                        <option value="CAMABAJA">CAMABAJA</option>
                     </select>
                 </td>
                 <td class="p-0 text-center" style="width: 8%">
                     <div class="flex">
-                        <span class="p-2">S/ </span>
-                        <input class="w-full m-0 p-2 border-none text-left bg-gray-100" type="number" name="unitPrice"
-                            id="unitPrice">
+                        <label class="p-2" for="unitPrice">S/ </label>
+                        <input
+                            class="w-full m-0 p-2 border-none text-left bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            type="number" name="unitPrice" id="unitPrice" onClick="this.select();"
+                            wire:model="unitPrice">
                     </div>
                 </td>
                 <td class="p-0" style="width: 8%">
-                    <input class="w-full bg-gray-100 border-none text-center" type="text" id="subtotal" name="subtotal"
-                        readonly>
+                    <input class="w-full bg-gray-100 border-none text-center" type="text" id="subtotal"
+                        name="subtotal" disabled wire:model="subtotal">
                 </td>
                 <td class="p-0" style="width: 8%">
-                    <input class="w-full bg-gray-100 border-none text-center" type="text" id="total" name="total" readonly>
+                    <input class="w-full bg-gray-100 border-none text-center" type="text" id="total"
+                        name="total" disabled wire:model="subtotal">
                 </td>
             </tr>
 
@@ -100,8 +110,15 @@
                 <td></td>
                 <td></td>
                 <td class="p-0 border-0 text-left flex">
-                    <span class="p-2">SERVICIO COTIZADO PARA EL TRANSLADO DE </span><span
-                        class="py-2 px-3 border border-2" role="textbox" contenteditable>MATERIALES VARIOS</span>
+                    <label for="materials" class="p-2">SERVICIO COTIZADO PARA EL TRANSLADO DE <span
+                            class="text-red-500">*</span></label>
+                    <input type="text"
+                        class="w-full m-0 p-2 border border-2 text-gray-900 text-sm rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                        @error('materials') bg-red-100 @else bg-gray-100 @endif"
+                        name="materials" id="materials" onClick="this.select();" wire:model="materials">
+                    {{-- <span
+                        class="py-2 px-3 border border-2" role="textbox" contenteditable
+                        wire:model="materials">MATERIALES VARIOS</span> --}}
                 </td>
                 <td></td>
                 <td></td>
@@ -113,8 +130,13 @@
                 <td></td>
                 <td></td>
                 <td class="p-0 border-0 text-left flex">
-                    <span class="p-2">PESO: </span><span class="py-2 px-3 border border-2" role="textbox"
-                        contenteditable></span><span class="p-2"> TONELADAS</span>
+                    <label for="weight" class="p-2">PESO: <span class="text-red-500">*</span></label>
+                    <input
+                        class="w-12 m-0 p-2 border border-2 border-gray-300 text-gray-900 text-sm rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-center bg-gray-100
+                        @error('weight') bg-red-100 @else bg-gray-100 @endif"
+                        type="number" name="weight" id="weight" onClick="this.select();" required
+                        wire:model="weight">
+                    <label for="weight" class="p-2">TONELADAS</label>
                 </td>
                 <td></td>
                 <td></td>
@@ -127,8 +149,13 @@
                 <td></td>
                 <td></td>
                 <td class="p-0 border-0 text-left flex">
-                    <span class="p-2">LUGAR DE RECOJO: </span><span class="py-2 px-3 border border-2"
-                        role="textbox" contenteditable></span><span class="p-2">
+                    <label for="pickupAddress" class="p-2 w-80">LUGAR DE RECOJO: <span
+                            class="text-red-500">*</span></label>
+                    <input type="text"
+                        class="w-full m-0 p-2 border border-2 text-gray-900 text-sm rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                        @error('pickupAddress') bg-red-100 @else bg-gray-100 @endif"
+                        name="pickupAddress" id="pickupAddress" onClick="this.select();" required
+                        wire:model="pickupAddress">
                 </td>
                 <td></td>
                 <td></td>
@@ -141,8 +168,13 @@
                 <td></td>
                 <td></td>
                 <td class="p-0 border-0 text-left flex">
-                    <span class="p-2">LUGAR DE ENTREGA: </span><span class="py-2 px-3 border border-2"
-                        role="textbox" contenteditable>
+                    <label for="deliveryAddress" class="p-2 w-80">LUGAR DE ENTREGA: <span
+                            class="text-red-500">*</span></label>
+                    <input type="text"
+                        class="w-full m-0 p-2 border border-2 border-gray-300 text-gray-900 text-sm rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-100
+                        @error('deliveryAddress') bg-red-100 @else bg-gray-100 @endif"
+                        name="deliveryAddress" id="deliveryAddress" onClick="this.select();" required
+                        wire:model="deliveryAddress">
                 </td>
                 <td></td>
                 <td></td>
@@ -170,6 +202,19 @@
                 <td></td>
                 <td></td>
             </tr>
+            @foreach ($commercialData as $commercial)
+                <tr>
+                    <th scope="row">&nbsp</th>
+                    <td></td>
+                    <td></td>
+                    <td class="p-0 border-0 text-left flex">
+                        <span class="w-full p-2" role="textbox">{{ $commercial }}</span>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            @endforeach
             {{-- <tr id="addCommercialData">
             <th scope="row">&nbsp</th>
             <td></td>
@@ -191,91 +236,26 @@
             <table class="table-bordered border-dark">
                 <tr>
                     <td class="py-1 px-4">Sub Total</td>
-                    <td class="py-1 px-4" style="width: 8rem" name="resume_subtotal">0</td>
+                    <td class="py-0 px-4" style="width: 8rem">
+                        <input type="text" name="resume_subtotal"
+                            class="w-full m-0 p-0 border-none text-left bg-gray-100" disabled wire:model="subtotal">
+                    </td>
                 </tr>
                 <tr>
                     <td class="py-1 px-4">IGV</td>
-                    <td class="py-1 px-4" style="width: 8rem" name="resume_igv">0</td>
+                    <td class="py-0 px-4" style="width: 8rem">
+                        <input type="text" name="resume_igv"
+                            class="w-full m-0 p-0 border-none text-left bg-gray-100" disabled wire:model="igv">
+                    </td>
                 </tr>
                 <tr>
                     <td class="py-1 px-4">Total</td>
-                    <td class="py-1 px-4" style="width: 8rem" name="resume_total">0</td>
+                    <td class="py-0 px-4" style="width: 8rem">
+                        <input type="text" name="resume_total"
+                            class="w-full m-0 p-0 border-none text-left bg-gray-100" disabled wire:model="total">
+                    </td>
                 </tr>
             </table>
         </div>
     </div>
 </form>
-
-@push('scripts')
-    <script>
-        const form = document.querySelector('#quotationCreateForm');
-        const table = document.querySelector('#quotationTable');
-        const companies = JSON.parse(form.dataset.companies);
-        const companiesSelect = form.elements['companies'];
-        const commercialData = ['RECOGO DE MATERIALES EN TODO LIMA Y CALLAO.',
-            'SEGURO COMPLEMENTARIO DE TRABAJO DE RIESGO (SCTR), SALUD Y PENSION.',
-            'MONITOREO Y SEGUIMIENTO DE UNIDADES EN BASE MEDIANTE CENTRO DE CONTROL.', 'NO INCLUYE CARGA NI DESCARGA',
-            'SISTEMA DE GESTION GPS, PARA TODOS NUESTROS SERVICIOS DE CARGA PESADA Y SOBREDIMENSIONADA.'
-        ];
-        const quantityInput = document.querySelector('#quantity');
-        const unitPriceInput = document.querySelector('#unitPrice');
-        const itemRow = document.querySelector('#itemRow');
-
-        const createCommercialDataRowElement = text => {
-            let tr = document.createElement("tr");
-            tr.classList.add("commercialDataRow");
-            tr.innerHTML = `
-            <th scope="row">&nbsp</th>
-            <td></td>
-            <td></td>
-            <td class="p-0 border-0 text-left flex">
-                <span class="w-full p-2" role="textbox">${text || ''}</span>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-        `;
-            return tr;
-        }
-
-        companies.forEach(company => {
-            let option = document.createElement("option");
-            option.value = company.ruc;
-            option.innerHTML = company.name;
-            companiesSelect.appendChild(option);
-        });
-
-        companiesSelect.addEventListener("change", e => {
-            let company = companies.find(company => company.ruc == companiesSelect.value)
-            document.querySelector("[name='ruc']").value = company?.ruc || ''
-            document.querySelector("[name='payment_method']").value = company?.preferred_payment_method || ''
-            document.querySelector("[name='attention']").value = company?.attention || ''
-        })
-
-        commercialData.forEach(text => {
-            let tr = createCommercialDataRowElement(text);
-            table.querySelector('tbody').appendChild(tr);
-        });
-
-        // get all inputs type number
-        itemRow.querySelectorAll('input[type="number"]').forEach(input => {
-            input.addEventListener('keyup', e => {
-                // multiply quantity by unit price
-                let quantity = quantityInput.value;
-                let unitPrice = unitPriceInput.value;
-                let total = quantity * unitPrice;
-                document.querySelector('[name="subtotal"]').value = `S/ ${total}`;
-                document.querySelector('[name="total"]').value = `S/ ${total}`;
-                document.querySelector('[name="resume_subtotal"]').value = `S/ ${total}`;
-                document.querySelector('[name="resume_igv"]').value = `S/ ${(total * 0.18).toFixed(2)}`;
-                document.querySelector('[name="resume_total"]').value = `S/ ${(total * 1.18).toFixed(2)}`;
-            });
-        });
-
-        // table.querySelector('#addCommercialData').addEventListener('click', e => {
-        //     let newRow = createCommercialDataRowElement();
-        //     table.querySelector('tbody').insertBefore(newRow, table.querySelector('tbody tr:last-child'));
-        //     newRow.querySelector('span').focus();
-        // })
-    </script>
-@endpush

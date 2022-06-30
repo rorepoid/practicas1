@@ -10,6 +10,19 @@ class Quotation extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'company_id',
+        'date',
+        'payment_method',
+        'transport_unit',
+        'materials',
+        'weight',
+        'pickup_address',
+        'description',
+        'status',
+        'total',
+    ];
+
     public function company(): BelongsTo
     {
         return $this->belongsTo(Company::class);
