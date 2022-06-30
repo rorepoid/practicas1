@@ -18,6 +18,8 @@ class QuotationFactory extends Factory
         $unitPrice = (float) $this->faker->randomFloat(2, 1, 250);
         return [
             'company_id' => $this->faker->numberBetween(1, 2),
+            'ruc' => $this->faker->numberBetween(10000000, 99999999),
+            'attention' => $this->faker->name,
             'date' => $this->faker->dateTimeBetween('-1 years', 'now'),
             'payment_method' => Arr::random(['Factura a 45 días', 'Factura a 30 días', 'Factura a 15 días']),
             'transport_unit' => Arr::random(['Plataforma', 'Camión rebatible', 'Camión doble eje', 'Porter', 'Camabaja']),

@@ -51,7 +51,8 @@ class QuotationController extends Controller
      */
     public function edit(Quotation $quotation)
     {
-        //
+        $quotationsCount = Quotation::count();
+        return view('quotations.edit', compact('quotation', 'quotationsCount'));
     }
 
     /**

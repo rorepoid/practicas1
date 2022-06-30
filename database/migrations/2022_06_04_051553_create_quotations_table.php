@@ -16,6 +16,8 @@ class CreateQuotationsTable extends Migration
         Schema::create('quotations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company_id')->constrained();
+            $table->string('ruc');
+            $table->string('attention');
             $table->string('payment_method');
             $table->string('transport_unit');
             $table->text('materials');

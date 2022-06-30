@@ -41,7 +41,7 @@
                             class="text-white dark:text-blue-500 bg-blue-700 px-2 py-1 border border border-blue-900"
                             data-id="{{ $company->id }}"
                             onclick="Livewire.emit('openModal', 'company.edit', {{ json_encode(['company' => $company->id]) }})"
-                            >Ver</a>
+                            >Ver / Editar</a>
                         <a href="#"
                             class="text-white dark:text-blue-500 bg-red-700 px-2 py-1 border border border-red-900"
                             onclick="Livewire.emit('openModal', 'company.delete', {{ json_encode(['company' => $company->id]) }})"

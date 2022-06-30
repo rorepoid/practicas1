@@ -6,18 +6,19 @@ use App\Models\Company;
 use App\Models\Quotation;
 use Livewire\Component;
 
-class CreateQuotation extends Component
+class EditQuotation extends Component
 {
+    public $quotation;
     public $companies;
     public $companyId;
     public $ruc;
     public $date;
     public $paymentMethod;
-    public $quantity = 0;
-    public $unitPrice = 0;
+    public $quantity;
+    public $unitPrice;
     public $transportUnit;
     public $attention;
-    public $materials = 'MATERIALES VARIOS';
+    public $materials;
     public $weight;
     public $pickupAddress;
     public $deliveryAddress;
@@ -25,21 +26,34 @@ class CreateQuotation extends Component
     public $subtotal;
     public $igv;
     public $total;
-    public $commercialData = [
-        'RECOGO DE MATERIALES EN TODO LIMA Y CALLAO.',
-        'SEGURO COMPLEMENTARIO DE TRABAJO DE RIESGO (SCTR), SALUD Y PENSION.',
-        'MONITOREO Y SEGUIMIENTO DE UNIDADES EN BASE MEDIANTE CENTRO DE CONTROL.', 'NO INCLUYE CARGA NI DESCARGA',
-        'SISTEMA DE GESTION GPS, PARA TODOS NUESTROS SERVICIOS DE CARGA PESADA Y SOBREDIMENSIONADA.'
-    ];
+    public $commercialData;
 
-    public function mount()
+    public function mount(Quotation $quotation)
     {
+        $this->quotation = $quotation;
         $this->companies = Company::all();
+        $this->companyId = $quotation->company_id;
+        $this->ruc = $quotation->company->ruc;
+        $this->date = $quotation->date;
+        $this->paymentMethod = $quotation->payment_method;
+        $this->quantity = $quotation->quantity;
+        $this->unitPrice = $quotation->unit_price;
+        $this->transportUnit = $quotation->transport_unit;
+        $this->attention = $quotation->attention;
+        $this->materials = $quotation->materials;
+        $this->weight = $quotation->weight;
+        $this->pickupAddress = $quotation->pickup_address;
+        $this->deliveryAddress = $quotation->delivery_address;
+        $this->description = $quotation->description;
+        $this->subtotal = $quotation->subtotal;
+        $this->igv = $quotation->igv;
+        $this->total = $quotation->total;
+        $this->commercialData = explode("\n", $quotation->description);
     }
 
     public function render()
     {
-        return view('livewire.quotation.create-quotation');
+        return view('livewire.quotation.edit-quotation');
     }
 
     public function store()
@@ -59,11 +73,11 @@ class CreateQuotation extends Component
             'deliveryAddress' => 'required',
         ]);
 
-        $quotation = Quotation::create([
+        $quotation = $this->quotation->update([
             'company_id' => $this->companyId,
-            'date' => $this->date,
             'ruc' => $this->ruc,
             'attention' => $this->attention,
+            'date' => $this->date,
             'payment_method' => $this->paymentMethod,
             'transport_unit' => $this->transportUnit,
             'materials' => $this->materials,
