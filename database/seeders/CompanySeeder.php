@@ -14,7 +14,7 @@ class CompanySeeder extends Seeder
     public function run()
     {
         \App\Models\Company::factory()
-            ->has(\App\Models\Quotation::factory()->count(3))
+            // ->has(\App\Models\Quotation::factory()->count(3))
             ->createMany([
                 [
                     'name' => 'INGENIEROS ELECTROMECANICOS SA',

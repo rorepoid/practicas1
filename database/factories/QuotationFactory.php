@@ -35,6 +35,8 @@ class QuotationFactory extends Factory
             ])->join('\n'),
             'quantity' => $quantity,
             'unit_price' => $unitPrice,
+            'subtotal' => $quantity * $unitPrice,
+            'igv' => $quantity * $unitPrice * 0.18,
             'total' => $quantity * ($unitPrice + 1.18),
             'status' => $this->faker->boolean(),
         ];

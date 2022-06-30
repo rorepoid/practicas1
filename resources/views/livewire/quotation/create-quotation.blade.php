@@ -229,8 +229,10 @@
     <div class="flex justify-between ...">
         <div class="w-1/3"></div>
         <div class="">
-            <button type="submit" class="btn bg-danger text-white">Cancelar</button>
-            <button type="submit" class="btn bg-primary text-white">Siguiente</button>
+            <a href="{{ route('quotations.index') }}" class="btn bg-danger text-white">
+                Cancelar
+            </a>
+            <button type="submit" class="btn bg-primary text-white">Guardar</button>
         </div>
         <div class="w-25">
             <table class="table-bordered border-dark">

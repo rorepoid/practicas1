@@ -18,4 +18,5 @@
     <div class="mx-10 bg-white">
         <livewire:quotation.list-quotations />
     </div>
+    <br>
 </x-app-layout>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\QuotationController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [QuotationController::class, 'index'])->middleware(['auth'])->name('home');
+    Route::get('/reports', [ReportController::class, 'index'])->middleware(['auth'])->name('reports.index');
     Route::get('/dashboard', fn () => view('dashboard'))->name('dashboard');
     Route::resource('/companies', CompanyController::class);
     Route::resource('/quotations', QuotationController::class);

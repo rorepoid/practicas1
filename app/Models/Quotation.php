@@ -23,6 +23,8 @@ class Quotation extends Model
         'status',
         'quantity',
         'unit_price',
+        'subtotal',
+        'igv',
         'total',
     ];
 

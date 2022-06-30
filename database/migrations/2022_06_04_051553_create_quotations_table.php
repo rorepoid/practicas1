@@ -27,6 +27,8 @@ class CreateQuotationsTable extends Migration
             $table->integer('weight');
             $table->integer('quantity');
             $table->decimal('unit_price', 8, 2);
+            $table->decimal('subtotal', 8, 2);
+            $table->decimal('igv', 8, 2);
             $table->decimal('total', 8, 2);
             $table->timestamps();
         });

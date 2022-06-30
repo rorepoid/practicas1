@@ -23,8 +23,8 @@
                 </a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center p-2 text-base font-normal text-gray-100 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-blue-700 hover:text-black {{ request()->route()->getName() === 'reports' ? 'bg-gray-300 text-black' : '' }}">
+                <a href="{{ route('reports.index') }}"
+                    class="flex items-center p-2 text-base font-normal text-gray-100 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-blue-700 hover:text-black {{ request()->route()->getName() === 'reports.index' ? 'bg-gray-300 text-black' : '' }}">
                     <img src="{{ asset('svg/reportes.svg') }}" width="70px" height="70px" />
                     <span class="ml-3 text-2xl">Reportes</span>
                 </a>

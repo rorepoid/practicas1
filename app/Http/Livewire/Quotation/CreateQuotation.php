@@ -69,6 +69,8 @@ class CreateQuotation extends Component
             'description' => implode("\n", $this->commercialData),
             'quantity' => $this->quantity,
             'unit_price' => $this->unitPrice,
+            'subtotal' => $this->subtotal,
+            'igv' => $this->igv,
             'total' => $this->total,
             'status' => 0,
         ]);
