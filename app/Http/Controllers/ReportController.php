@@ -10,8 +10,9 @@ class ReportController extends Controller
 {
     public function index()
     {
-        $quotations = Quotation::with('company')->get();
-        return view('reports.index', compact('quotations'));
+        $quotations = Quotation::all();
+        $quotationsTotalSum = $quotations->sum('total');
+        return view('reports.index', compact('quotationsTotalSum'));
 
     }
 }

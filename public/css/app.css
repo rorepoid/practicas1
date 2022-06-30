@@ -4066,6 +4066,12 @@ textarea.form-control.is-invalid {
 .mb-5 {
   margin-bottom: 1.25rem;
 }
+.mr-10 {
+  margin-right: 2.5rem;
+}
+.mt-5 {
+  margin-top: 1.25rem;
+}
 .box-content {
   box-sizing: content-box;
 }
@@ -4327,6 +4333,9 @@ textarea.form-control.is-invalid {
 .border-2 {
   border-width: 2px;
 }
+.border-4 {
+  border-width: 4px;
+}
 .border-b {
   border-bottom-width: 1px;
 }
@@ -4574,6 +4583,9 @@ textarea.form-control.is-invalid {
 }
 .pb-5 {
   padding-bottom: 1.25rem;
+}
+.pr-10 {
+  padding-right: 2.5rem;
 }
 .text-left {
   text-align: left;

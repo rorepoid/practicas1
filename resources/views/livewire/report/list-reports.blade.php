@@ -14,7 +14,7 @@
                 UNIDAD
             </th>
             <th scope="col" class="px-6 py-3 text-lg border border-black">
-                MONTO
+                SUBTOTAL
             </th>
             <th scope="col" class="px-6 py-3 text-lg border border-black">
                 IGV
@@ -73,4 +73,3 @@
         @endforelse
     </tbody>
 </table>
-MONTO TOTAL: {{ $quotations->sum('total') }}
