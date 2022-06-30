@@ -52,23 +52,13 @@
             </tr>
         @empty
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <td scope="row"
-                    class="px-6 py-4 text-gray-900 dark:text-white whitespace-nowrap border border-black">
-                </td>
-                <td class="px-6 py-4 border border-black">
-
-                </td>
-                <td class="px-6 py-4 border border-black">
-
-                </td>
-                <td class="px-6 py-4 border border-black">
-
-                </td>
-                <td class="px-6 py-4 border border-black">
-
-                </td>
-                <td class="px-6 py-4 text-right border border-black">
-                </td>
+                <td class="px-6 py-4 border border-black"></td>
+                <td class="px-6 py-4 border border-black"></td>
+                <td class="px-6 py-4 border border-black"></td>
+                <td class="px-6 py-4 border border-black"></td>
+                <td class="px-6 py-4 border border-black"></td>
+                <td class="px-6 py-4 border border-black"></td>
+                <td class="px-6 py-4 border border-black"></td>
             </tr>
         @endforelse
     </tbody>

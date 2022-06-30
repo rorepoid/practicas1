@@ -17,7 +17,7 @@ class ListReports extends Component
     public function getQuotations()
     {
         return Quotation::query()
-            ->where('status', '=', 0)
+            ->where('status', '=', 1)
             ->get();
     }
 
