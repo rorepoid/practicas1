@@ -39,7 +39,9 @@
                     <div class="form-check grid align-center justify-center content-center">
                         <input type="checkbox"
                             class="form-checkbox bg-red-600 checked:text-green-600 checked:bg-green-600"
-                            {{ $quotation->status ? 'checked' : '' }}>
+                            onclick="Livewire.emit('openModal', 'quotation.update-status', {{ json_encode(['quotation' => $quotation->id]) }}); return false;"
+                            {{ $quotation->status ? 'checked' : '' }}
+                        >
                     </div>
                 </td>
                 <td class="px-6 py-4 border border-black">
