@@ -13,12 +13,14 @@ class Edit extends ModalComponent
     public $address;
     public $attention;
     public $status;
+    public $preferredPaymentMethod;
 
     protected $rules = [
         'name' => ['required', 'string'],
         'ruc' => ['required', 'digits:11'],
         'address' => ['required', 'string'],
         'attention' => ['nullable', 'string'],
+        'preferredPaymentMethod' => ['nullable', 'string'],
         'status' => ['nullable', 'boolean'],
     ];
 
@@ -29,6 +31,7 @@ class Edit extends ModalComponent
         $this->ruc = $company->ruc;
         $this->address = $company->address;
         $this->attention = $company->attention;
+        $this->preferredPaymentMethod = $company->preferred_payment_method;
         $this->status = $company->status;
     }
 
@@ -46,6 +49,7 @@ class Edit extends ModalComponent
             'ruc' => $this->ruc,
             'address' => $this->address,
             'attention' => $this->attention,
+            'preferred_payment_method' => $this->preferredPaymentMethod,
             'status' => (bool) $this->status,
         ]);
 

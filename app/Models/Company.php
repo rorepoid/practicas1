@@ -15,6 +15,7 @@ class Company extends Model
         'ruc',
         'address',
         'attention',
+        'preferred_payment_method',
         'status',
     ];
 

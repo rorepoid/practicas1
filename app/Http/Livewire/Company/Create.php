@@ -12,12 +12,14 @@ class Create extends ModalComponent
     public $address;
     public $attention;
     public $status;
+    public $preferredPaymentMethod = '';
 
     protected $rules = [
         'name' => ['required', 'string'],
         'ruc' => ['required', 'digits:11'],
         'address' => ['required', 'string'],
         'attention' => ['nullable', 'string'],
+        'preferredPaymentMethod' => ['nullable', 'string'],
         'status' => ['nullable', 'boolean'],
     ];
 
@@ -35,6 +37,7 @@ class Create extends ModalComponent
             'ruc' => $this->ruc,
             'address' => $this->address,
             'attention' => $this->attention,
+            'preferred_payment_method' => $this->preferredPaymentMethod,
             'status' => (bool) $this->status,
         ]);
 
