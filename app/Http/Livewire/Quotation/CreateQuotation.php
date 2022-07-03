@@ -34,7 +34,7 @@ class CreateQuotation extends Component
 
     public function mount()
     {
-        $this->companies = Company::all();
+        $this->companies = Company::active()->get();
     }
 
     public function render()

@@ -10,6 +10,9 @@ class Company extends Model
 {
     use HasFactory;
 
+    const STATUS_ACTIVE = true;
+    const STATUS_INACTIVE = false;
+
     protected $fillable = [
         'name',
         'ruc',
@@ -22,5 +25,10 @@ class Company extends Model
     public function quotations(): HasMany
     {
         return $this->hasMany(Quotation::class);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', self::STATUS_ACTIVE);
     }
 }

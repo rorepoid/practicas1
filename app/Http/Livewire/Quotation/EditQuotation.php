@@ -31,7 +31,7 @@ class EditQuotation extends Component
     public function mount(Quotation $quotation)
     {
         $this->quotation = $quotation;
-        $this->companies = Company::all();
+        $this->companies = Company::active()->get();
         $this->companyId = $quotation->company_id;
         $this->ruc = $quotation->company->ruc;
         $this->date = $quotation->date;

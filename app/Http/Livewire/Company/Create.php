@@ -11,7 +11,7 @@ class Create extends ModalComponent
     public $ruc;
     public $address;
     public $attention;
-    public $status;
+    public $status = 1;
     public $preferredPaymentMethod = '';
 
     protected $rules = [
