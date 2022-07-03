@@ -90,7 +90,6 @@ class EditQuotation extends Component
             'subtotal' => $this->subtotal,
             'igv' => $this->igv,
             'total' => $this->total,
-            'status' => 0,
         ]);
 
         $this->emit('quotationStored', $quotation);
