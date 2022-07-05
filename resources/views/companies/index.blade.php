@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">PROVEEDORES</x-slot>
+    <x-slot name="header">CLIENTES</x-slot>
     <x-slot name="styles">
     </x-slot>
 
