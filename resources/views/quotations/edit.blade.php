@@ -49,6 +49,6 @@
         <livewire:quotation.edit-quotation :quotation="$quotation" />
     </div>
     @push('scripts')
-        <script src="{{ mix('js/quotation/create.js') }}"></script>
+        <script src="{{ asset('js/quotation/create.js') }}"></script>
     @endpush
 </x-app-layout>
