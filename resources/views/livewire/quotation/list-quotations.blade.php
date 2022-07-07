@@ -51,7 +51,7 @@
                     <div class=" grid grid-cols-2 gap-4 align-center justify-center text-center">
                         <a href="{{ route('quotations.edit', $quotation->id) }}"
                             class="text-white dark:text-blue-500 bg-blue-700 px-2 py-1 border border border-blue-900">Editar</a>
-                        <a href="#"
+                        <a href="{{ route('quotations.show', $quotation->id) }}"
                             class="text-white dark:text-blue-500 bg-red-700 px-2 py-1 border border border-red-900">Ver</a>
                     </div>
                 </td>

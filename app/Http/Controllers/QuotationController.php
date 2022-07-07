@@ -40,7 +40,7 @@ class QuotationController extends Controller
      */
     public function show(Quotation $quotation)
     {
-        //
+        return view('quotations.print', compact('quotation'));
     }
 
     /**
