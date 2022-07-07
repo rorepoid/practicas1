@@ -23,7 +23,9 @@ class ListQuotations extends Component
 
     public function getQuotations()
     {
-        return Quotation::all();
+        return Quotation::query()
+            ->orderBy('created_at', 'desc')
+            ->get();
     }
 
     public function quotationAdded()
