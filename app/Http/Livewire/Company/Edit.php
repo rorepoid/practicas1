@@ -16,6 +16,7 @@ class Edit extends ModalComponent
     public $preferredPaymentMethod;
 
     protected $rules = [
+        'company' => ['required', 'exists:companies,id'],
         'name' => ['required', 'string'],
         'ruc' => ['required', 'digits:11'],
         'address' => ['required', 'string'],
