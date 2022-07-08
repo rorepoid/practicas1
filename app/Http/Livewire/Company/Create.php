@@ -16,7 +16,7 @@ class Create extends ModalComponent
 
     protected $rules = [
         'name' => ['required', 'string'],
-        'ruc' => ['required', 'digits:11'],
+        'ruc' => ['required', 'digits:11', 'unique:companies,ruc'],
         'address' => ['required', 'string'],
         'attention' => ['nullable', 'string'],
         'preferredPaymentMethod' => ['nullable', 'string'],
